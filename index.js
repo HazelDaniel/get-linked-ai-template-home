@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		const observerOptions = {
 			root: null, // Use the viewport as the root
 			rootMargin: '0px', // No margin
-			threshold: 0.5, // 50% of the element must be in view
 		};
 
 		// Create an Intersection Observer
@@ -40,8 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		removeBounceClass();
 
 		// Get all elements with the class name "bounce"
-		const elements = document.querySelectorAll('.bounce');
-
+		const elements = document.querySelectorAll('.animate-bounce');
 		// Observe each element
 		elements.forEach((element) => {
 			observer.observe(element);
