@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	const hamburgerIcon = document.querySelector("header").querySelector(".hamburger");
 	const headerMenu = document.querySelector("header").querySelector(".header-menu");
 	const heroMotto = document.querySelector("section.hero").querySelector("h3");
+	const register_link = "https://hazeldaniel.github.io/get-linked-ai-template-register/"
+	const register_button = document.querySelector(".header-cta button");
 	let toggleCount = 0;
 
 	const initBounce = function () {
@@ -148,6 +150,11 @@ document.addEventListener("DOMContentLoaded", function () {
 		countdown();
 	}
 
+	const handle_route_register = function () {
+		register_button.addEventListener('click', function() {
+      window.location.href = register_link;
+    });
+	}
 
 	// driver code
 	initHeaderLinks();
@@ -155,5 +162,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	initializeTyped();
 	initCountDown();
 	initBounce();
+	handle_route_register();
 
 });
