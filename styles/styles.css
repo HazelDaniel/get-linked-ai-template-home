@@ -1355,6 +1355,7 @@ header .hamburger span:nth-of-type(3) {
   margin: 0 auto;
   margin-bottom: 2rem;
   height: max-content;
+  padding-right: 2rem;
   transition: height 0.2s ease-out;
   overflow: hidden;
   border-bottom: 0.2rem solid var(--accent-color-fade);
@@ -1381,6 +1382,9 @@ header .hamburger span:nth-of-type(3) {
 .faq-left .faq-accordion .accordion-item p {
   display: none;
   text-align: end;
+  font-size: 1.2rem !important;
+  color: var(--accent-color-fade);
+  line-height: 2rem;
   width: 80%;
 }
 .faq-right {
