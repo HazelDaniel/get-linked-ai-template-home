@@ -7,6 +7,10 @@ document.addEventListener("DOMContentLoaded", function () {
 	const heroMotto = document.querySelector("section.hero").querySelector("h3");
 	const register_link = "https://hazeldaniel.github.io/get-linked-ai-template-register/"
 	const register_button = document.querySelector(".header-cta button");
+	const headerCtaButton = document.querySelector(".header-cta button");
+	const logoText = document.querySelector(".logo-text");
+	const register_button_hero = document.querySelector(".header-cta button");
+	const heroCta = document.querySelector(".hero-cta");
 	let toggleCount = 0;
 
 	const initBounce = function () {
@@ -17,7 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
 			});
 		}
 
-		// Function to add the "bounce" class to elements when they are in view
 		function addBounceClass(entries) {
 			entries.forEach((entry) => {
 				if (entry.isIntersecting) {
@@ -152,6 +155,15 @@ document.addEventListener("DOMContentLoaded", function () {
 		register_button.addEventListener('click', function() {
       window.location.href = register_link;
     });
+		register_button_hero.addEventListener('click', function() {
+			window.location.href = register_link;
+		});
+		logoText.addEventListener('click', function() {
+			window.location.href = register_link;
+		});
+		heroCta.addEventListener('click', function() {
+			window.location.href = register_link;
+		});
 	}
 
 	const handleToastRender = function(message) {
@@ -166,6 +178,34 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	};
 
+	const handleAccordionExpansion = function() {
+
+		const controlElements = document.querySelectorAll(".control");
+		const accordionElements = document.querySelectorAll(".accordion-item");
+
+		controlElements.forEach(controlElement => {
+			controlElement.addEventListener("click", () => {
+
+				const parentAccordionItem = controlElement.closest(".accordion-item");
+
+				if (parentAccordionItem) {
+					if (parentAccordionItem.classList.contains("expanded")) {
+						controlElement.textContent = "+";
+						parentAccordionItem.classList.remove("expanded");
+					} else {
+						controlElement.textContent = "-";
+						accordionElements.forEach((element)=> {
+							element.classList.remove("expanded");
+						});
+						parentAccordionItem.classList.add("expanded");
+					}
+				}
+			});
+		});
+
+	}
+
+
 	// driver code
 	initHeaderLinks();
 	handleHamburgerClick();
@@ -173,5 +213,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	initCountDown();
 	initBounce();
 	handle_route_register();
+	handleAccordionExpansion();
 
 });

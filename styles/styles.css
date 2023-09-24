@@ -147,7 +147,11 @@ body.contact-body > .solar_flare:nth-of-type(4) {
 }
 body .toast {
   position: fixed;
+  margin: 0 auto;
+  align-self: center;
   width: max-content;
+  display: none;
+  width: 70vw;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -161,6 +165,12 @@ body .toast {
   backdrop-filter: blur(10rem);
   border-radius: 0.5rem;
   border: 0.2rem solid var(--accent-color-fade);
+}
+@media screen and (max-width: 557px) {
+  body .toast {
+    right: -200%;
+    width: 90vw;
+  }
 }
 body .toast.slide-in {
   animation-name: slide_in_toast;
@@ -212,10 +222,10 @@ body .toast .cancel span:nth-of-type(2) {
     right: -100%;
   }
   20%, 50%, 60%, 70% {
-    right: 20%;
+    right: 10%;
   }
   80% {
-    right: 18%;
+    right: 20%;
   }
   to {
     right: 110vw;
@@ -1328,7 +1338,6 @@ header .hamburger span:nth-of-type(3) {
 }
 @media screen and (min-width: 577px) {
   .faq-left .faq-accordion {
-    display: none;
     width: 60%;
   }
 }
@@ -1346,11 +1355,15 @@ header .hamburger span:nth-of-type(3) {
   margin: 0 auto;
   margin-bottom: 2rem;
   height: max-content;
+  transition: height 0.2s ease-out;
   overflow: hidden;
   border-bottom: 0.2rem solid var(--accent-color-fade);
   width: 80%;
   position: relative;
   padding-bottom: 1rem;
+}
+.faq-left .faq-accordion .accordion-item.expanded p {
+  display: block;
 }
 .faq-left .faq-accordion .accordion-item > span {
   position: absolute;
@@ -1366,9 +1379,9 @@ header .hamburger span:nth-of-type(3) {
   font-size: 2.5rem;
 }
 .faq-left .faq-accordion .accordion-item p {
+  display: none;
   text-align: end;
   width: 80%;
-  height: max-content;
 }
 .faq-right {
   height: max-content;
