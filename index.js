@@ -193,11 +193,12 @@ document.addEventListener("DOMContentLoaded", function () {
 						controlElement.textContent = "+";
 						parentAccordionItem.classList.remove("expanded");
 					} else {
-						controlElement.textContent = "-";
 						accordionElements.forEach((element)=> {
 							element.classList.remove("expanded");
+							element.querySelector(".control").textContent = "+";
 						});
 						parentAccordionItem.classList.add("expanded");
+						controlElement.textContent = "-";
 					}
 				}
 			});
