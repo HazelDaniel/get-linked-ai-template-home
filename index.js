@@ -29,25 +29,70 @@ document.addEventListener("DOMContentLoaded", function () {
 			});
 		}
 
-		// Intersection Observer configuration
 		const observerOptions = {
-			root: null, // Use the viewport as the root
-			rootMargin: '0px', // No margin
+			root: null,
+			rootMargin: '0px',
 		};
 
-		// Create an Intersection Observer
 		const observer = new IntersectionObserver(addBounceClass, observerOptions);
 
-		// Remove the "bounce" class from all elements initially
 		removeBounceClass();
 
-		// Get all elements with the class name "bounce"
 		const elements = document.querySelectorAll('.animate-bounce');
-		// Observe each element
 		elements.forEach((element) => {
 			observer.observe(element);
 		});
 		
+	}
+
+	const handleLeftTimelineInView = function () {
+
+		function handleIntersection(entries, observer) {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add("join_left");
+					
+					observer.unobserve(entry.target);
+				}
+			});
+		}
+
+		const observer = new IntersectionObserver(handleIntersection, {
+			root: null,
+			rootMargin: "0px",
+			threshold: 0.1
+		});
+
+		const componentLeftElements = document.querySelectorAll(".component-left");
+
+		componentLeftElements.forEach(element => {
+			observer.observe(element);
+		});
+	}
+
+	const handleRightTimelineInView = function () {
+
+		function handleIntersection(entries, observer) {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add("join_right");
+					
+					observer.unobserve(entry.target);
+				}
+			});
+		}
+
+		const observer = new IntersectionObserver(handleIntersection, {
+			root: null,
+			rootMargin: "0px",
+			threshold: 0.1
+		});
+
+		const componentLeftElements = document.querySelectorAll(".component-right");
+
+		componentLeftElements.forEach(element => {
+			observer.observe(element);
+		});
 	}
 
 	const initHeaderLinks = function() {
@@ -215,5 +260,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	initBounce();
 	handle_route_register();
 	handleAccordionExpansion();
+	handleLeftTimelineInView();
+	handleRightTimelineInView();
 
 });

@@ -1335,6 +1335,7 @@ header .hamburger span:nth-of-type(3) {
   height: max-content;
   display: block;
   width: 100%;
+  margin: 0 auto;
 }
 @media screen and (min-width: 577px) {
   .faq-left .faq-accordion {
@@ -1537,9 +1538,38 @@ header .hamburger span:nth-of-type(3) {
     justify-content: center;
   }
 }
+.timeline .timeline-component .component-left {
+  margin-right: 10%;
+  transform: translateY(20%);
+}
 @media screen and (min-width: 992px) {
   .timeline .timeline-component .component-left {
-    margin-right: 10%;
+    transform: translateX(-20%);
+  }
+}
+.timeline .timeline-component .component-left.join_left {
+  animation-name: join_left;
+  animation-timing-function: linear;
+  animation-duration: 0.7s;
+  animation-iteration-count: 1;
+  transform: unset;
+}
+@keyframes join_left {
+  from {
+    transform: translateY(20%);
+    @media screen and (min-width: 992px) {
+      .timeline .timeline-component .component-left {
+        transform: translateX(-20%);
+      }
+    }
+  }
+  to {
+    transform: translateY(0%);
+    @media screen and (min-width: 992px) {
+      .timeline .timeline-component .component-left {
+        transform: translateX(0%);
+      }
+    }
   }
 }
 .timeline .timeline-component .component-left p:first-of-type {
@@ -1596,6 +1626,37 @@ header .hamburger span:nth-of-type(3) {
 .timeline .timeline-component .component-right {
   display: block;
   width: 100%;
+  transform: translateY(20%);
+}
+@media screen and (min-width: 992px) {
+  .timeline .timeline-component .component-right {
+    transform: translateX(20%);
+  }
+}
+.timeline .timeline-component .component-right.join_right {
+  animation-name: join_right;
+  animation-timing-function: linear;
+  animation-duration: 0.7s;
+  animation-iteration-count: 1;
+  transform: unset;
+}
+@keyframes join_right {
+  from {
+    transform: translateY(20%);
+    @media screen and (min-width: 992px) {
+      .timeline .timeline-component .component-right {
+        transform: translateX(20%);
+      }
+    }
+  }
+  to {
+    transform: translateY(0%);
+    @media screen and (min-width: 992px) {
+      .timeline .timeline-component .component-right {
+        transform: translateX(0%);
+      }
+    }
+  }
 }
 @media screen and (min-width: 992px) {
   .timeline .timeline-component .component-right {
