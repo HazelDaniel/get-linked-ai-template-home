@@ -154,6 +154,18 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 	}
 
+	const handleToastRender = function(message) {
+		const toast = document.querySelector('.toast');
+
+		if (toast) {
+			const pElement = toast.querySelector('p');
+
+			if (pElement)
+				pElement.textContent = message;
+			toast.classList.add('slide-in');
+		}
+	};
+
 	// driver code
 	initHeaderLinks();
 	handleHamburgerClick();
